@@ -209,8 +209,28 @@
     border:1px dashed rgba(205,231,225,.4);
     border-radius:12px;padding:.7rem 1rem;
     font-size:1rem;
+    display:flex;align-items:center;justify-content:space-between;gap:.6rem;flex-wrap:wrap;
+    width:100%;cursor:pointer;text-align:left;
+    font-family:var(--sans);color:rgba(205,231,225,.92);
+    transition:background .2s;
   }
+  .wifi-card .cred:hover{background:rgba(255,255,255,.18)}
   .wifi-card .cred b{color:#fff;letter-spacing:.03em}
+  .wifi-card .copy-hint{
+    font-size:.66rem;font-weight:800;text-transform:uppercase;letter-spacing:.14em;
+    color:var(--gold);white-space:nowrap;
+  }
+  .wifi-qr{
+    display:flex;align-items:center;gap:1rem;
+    margin-top:.9rem;background:rgba(255,255,255,.1);
+    border-radius:12px;padding:.8rem .9rem;
+  }
+  .wifi-qr img{
+    width:92px;height:92px;flex:0 0 92px;
+    background:#fff;border-radius:8px;padding:5px;
+  }
+  .wifi-qr span{font-size:.86rem;line-height:1.45;color:rgba(205,231,225,.92)}
+  .wifi-qr span b{color:#fff}
 
   /* ---------- RULES ---------- */
   .rules-wrap{display:grid;gap:1.2rem;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
@@ -527,8 +547,12 @@
       <div class="card wifi-card">
         <span class="icon">📶</span>
         <h3>Wi-Fi</h3>
-        <div class="cred">Network: <b>NETGEAR46</b></div>
-        <div class="cred">Password: <b>jollycartoon042</b></div>
+        <button class="cred" data-copy="NETGEAR46">Network: <b>NETGEAR46</b><span class="copy-hint">tap to copy</span></button>
+        <button class="cred" data-copy="jollycartoon042">Password: <b>jollycartoon042</b><span class="copy-hint">tap to copy</span></button>
+        <div class="wifi-qr">
+          <img src="photos/wifi-qr.svg" alt="QR code — scan to join the Wi-Fi network automatically">
+          <span><b>Skip the typing!</b><br>Point your phone's camera at this code to join the Wi-Fi instantly.</span>
+        </div>
         <p style="margin-top:.8rem">Ultra-fast 1000+ Mbps — perfect for streaming, working remotely, or gaming. Smart TVs in every room are ready for your Netflix, Prime, Peacock, HBO &amp; Hulu logins — just remember to log out before you leave!</p>
       </div>
       <div class="card">
@@ -981,6 +1005,20 @@
   }
   boxes.forEach(b => b.addEventListener('change', update));
   update();
+
+  // Tap-to-copy Wi-Fi credentials
+  document.querySelectorAll('.cred[data-copy]').forEach(el => {
+    el.addEventListener('click', async () => {
+      const hint = el.querySelector('.copy-hint');
+      try {
+        await navigator.clipboard.writeText(el.dataset.copy);
+        hint.textContent = '✓ copied!';
+      } catch (e) {
+        hint.textContent = 'press & hold to copy';
+      }
+      setTimeout(() => { hint.textContent = 'tap to copy'; }, 2000);
+    });
+  });
 
   // Scroll progress bar
   const sp = document.getElementById('scrollProgress');
