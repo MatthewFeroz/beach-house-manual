@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>811 Beach Haven West Blvd · House Manual</title>
+<meta name="description" content="Guest guide & house rules for 811 Beach Haven West Boulevard — a waterfront getaway on the lagoon, 5 minutes from Long Beach Island.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Karla:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐚</text></svg>">
+<style>
+  :root{
+    --cream:#FBF6EC;
+    --sand:#F3EADA;
+    --sand-deep:#E8DCC4;
+    --lagoon:#0E5260;
+    --lagoon-deep:#093843;
+    --foam:#CDE7E1;
+    --coral:#E26D4F;
+    --coral-soft:#F4B49E;
+    --gold:#D9A441;
+    --driftwood:#8A7A63;
+    --ink:#22343A;
+    --serif:"Fraunces", Georgia, serif;
+    --sans:"Karla", "Helvetica Neue", sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--sans);
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.65;
+    overflow-x:hidden;
+  }
+  body::before{
+    content:"";
+    position:fixed;inset:0;
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 250 250' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+    opacity:.05;pointer-events:none;z-index:9999;
+  }
+  ::selection{background:var(--coral);color:var(--cream)}
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:.85rem 2rem;
+    background:rgba(251,246,236,.82);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(34,52,58,.08);
+  }
+  nav .brand{
+    font-family:var(--serif);font-weight:600;font-size:1.05rem;
+    letter-spacing:.02em;color:var(--lagoon);text-decoration:none;
+    display:flex;align-items:center;gap:.5rem;
+  }
+  nav .links{display:flex;gap:1.4rem;flex-wrap:wrap}
+  nav .links a{
+    font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;
+    color:var(--ink);text-decoration:none;opacity:.7;transition:.25s;
+  }
+  nav .links a:hover{opacity:1;color:var(--coral)}
+  @media(max-width:840px){nav .links{display:none}}
+
+  /* ---------- HERO ---------- */
+  header{
+    position:relative;
+    min-height:100svh;
+    display:flex;flex-direction:column;justify-content:center;
+    padding:8rem 2rem 11rem;
+    background:
+      radial-gradient(1200px 600px at 80% -10%, rgba(244,180,158,.5), transparent 60%),
+      radial-gradient(900px 500px at 10% 110%, rgba(205,231,225,.8), transparent 60%),
+      linear-gradient(180deg, var(--cream) 0%, var(--sand) 100%);
+    text-align:center;
+    overflow:hidden;
+  }
+  .sun{
+    position:absolute;top:9%;right:12%;
+    width:130px;height:130px;border-radius:50%;
+    background:radial-gradient(circle at 35% 35%, #FFD98A, var(--gold));
+    box-shadow:0 0 80px 30px rgba(217,164,65,.35);
+    animation:float 9s ease-in-out infinite;
+  }
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}
+  .eyebrow{
+    font-size:.8rem;font-weight:800;text-transform:uppercase;letter-spacing:.35em;
+    color:var(--coral);margin-bottom:1.4rem;
+    animation:rise .9s .1s both;
+  }
+  h1{
+    font-family:var(--serif);
+    font-weight:500;
+    font-size:clamp(2.6rem, 7vw, 5.4rem);
+    line-height:1.05;
+    color:var(--lagoon-deep);
+    letter-spacing:-.01em;
+    max-width:18ch;margin:0 auto;
+    animation:rise .9s .25s both;
+  }
+  h1 em{font-style:italic;color:var(--coral);font-weight:400}
+  .hero-sub{
+    max-width:46ch;margin:1.6rem auto 0;font-size:1.12rem;color:var(--driftwood);
+    animation:rise .9s .4s both;
+  }
+  .hero-badges{
+    display:flex;gap:.7rem;justify-content:center;flex-wrap:wrap;margin-top:2.2rem;
+    animation:rise .9s .55s both;
+  }
+  .pill{
+    font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+    padding:.5rem 1.1rem;border-radius:999px;
+    background:rgba(255,255,255,.65);border:1px solid rgba(14,82,96,.18);
+    color:var(--lagoon);
+  }
+  .hero-cards{
+    display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:3rem;
+    animation:rise .9s .7s both;
+  }
+  .time-card{
+    background:var(--lagoon);color:var(--foam);
+    padding:1.1rem 2rem;border-radius:18px;
+    box-shadow:0 18px 40px -16px rgba(9,56,67,.5);
+    transform:rotate(-1.2deg);transition:.3s;
+  }
+  .time-card:nth-child(2){transform:rotate(1.4deg);background:var(--coral);color:#FFF3EC;box-shadow:0 18px 40px -16px rgba(226,109,79,.55)}
+  .time-card:hover{transform:rotate(0) translateY(-4px)}
+  .time-card .label{font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.25em;opacity:.85}
+  .time-card .time{font-family:var(--serif);font-size:2rem;font-weight:600;line-height:1.15}
+  @keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
+  .waves{position:absolute;bottom:-2px;left:0;width:100%;line-height:0}
+  .waves svg{display:block;width:100%;height:120px}
+
+  /* ---------- LAYOUT ---------- */
+  main{max-width:1100px;margin:0 auto;padding:0 1.5rem}
+  section{padding:5.5rem 0 2rem;scroll-margin-top:80px}
+  .kicker{
+    display:flex;align-items:center;gap:.9rem;
+    font-size:.75rem;font-weight:800;text-transform:uppercase;letter-spacing:.3em;color:var(--coral);
+    margin-bottom:.9rem;
+  }
+  .kicker::after{content:"";height:1px;width:70px;background:var(--coral);opacity:.5}
+  h2{
+    font-family:var(--serif);font-weight:500;
+    font-size:clamp(1.9rem, 4vw, 2.9rem);
+    color:var(--lagoon-deep);line-height:1.12;margin-bottom:1.1rem;
+    max-width:24ch;
+  }
+  h2 em{font-style:italic;color:var(--coral);font-weight:400}
+  .lede{max-width:62ch;color:var(--driftwood);font-size:1.06rem;margin-bottom:2.4rem}
+
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ---------- CARDS ---------- */
+  .grid{display:grid;gap:1.2rem}
+  .grid.cols-2{grid-template-columns:repeat(auto-fit,minmax(290px,1fr))}
+  .grid.cols-3{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+  .card{
+    background:#fff;
+    border:1px solid rgba(34,52,58,.08);
+    border-radius:20px;
+    padding:1.7rem 1.6rem;
+    box-shadow:0 10px 30px -18px rgba(34,52,58,.25);
+    transition:transform .3s, box-shadow .3s;
+  }
+  .card:hover{transform:translateY(-5px);box-shadow:0 22px 44px -20px rgba(34,52,58,.35)}
+  .card .icon{font-size:1.7rem;line-height:1;margin-bottom:.8rem;display:block}
+  .card h3{font-family:var(--serif);font-weight:600;font-size:1.25rem;color:var(--lagoon);margin-bottom:.55rem}
+  .card p, .card li{font-size:.95rem;color:#475a61}
+  .card ul{list-style:none}
+  .card li{padding:.32rem 0 .32rem 1.35rem;position:relative}
+  .card li::before{content:"›";position:absolute;left:.25rem;color:var(--coral);font-weight:800}
+  .card .sub{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.18em;color:var(--coral);margin:.9rem 0 .25rem}
+
+  .wifi-card{
+    background:linear-gradient(135deg, var(--lagoon) 0%, var(--lagoon-deep) 100%);
+    color:var(--foam);border:none;
+  }
+  .wifi-card h3{color:#fff}
+  .wifi-card p,.wifi-card li{color:rgba(205,231,225,.92)}
+  .wifi-card .cred{
+    margin-top:.6rem;background:rgba(255,255,255,.1);
+    border:1px dashed rgba(205,231,225,.4);
+    border-radius:12px;padding:.7rem 1rem;
+    font-size:1rem;
+  }
+  .wifi-card .cred b{color:#fff;letter-spacing:.03em}
+
+  /* ---------- RULES ---------- */
+  .rules-wrap{display:grid;gap:1.2rem;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+  .rule-col{border-radius:22px;padding:2rem 1.8rem}
+  .rule-col.do{background:var(--foam);border:1px solid rgba(14,82,96,.15)}
+  .rule-col.dont{background:#FCE5DC;border:1px solid rgba(226,109,79,.25)}
+  .rule-col h3{
+    font-family:var(--serif);font-size:1.5rem;font-weight:600;margin-bottom:1rem;
+    display:flex;align-items:center;gap:.6rem;
+  }
+  .rule-col.do h3{color:var(--lagoon-deep)}
+  .rule-col.dont h3{color:#A8401F}
+  .rule-col ul{list-style:none}
+  .rule-col li{padding:.42rem 0 .42rem 1.7rem;position:relative;font-size:.96rem}
+  .rule-col.do li::before{content:"✓";position:absolute;left:0;font-weight:800;color:var(--lagoon)}
+  .rule-col.dont li::before{content:"✕";position:absolute;left:0;font-weight:800;color:var(--coral)}
+  .quiet{
+    margin-top:1.4rem;text-align:center;
+    background:var(--lagoon-deep);color:var(--foam);
+    border-radius:22px;padding:1.5rem 2rem;
+    font-family:var(--serif);font-size:1.3rem;font-style:italic;
+  }
+  .quiet b{color:var(--gold);font-style:normal}
+
+  /* ---------- CHECKLIST ---------- */
+  .checklist{display:grid;gap:.55rem;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));counter-reset:item}
+  .check-item{
+    display:flex;align-items:flex-start;gap:.8rem;
+    background:#fff;border:1px solid rgba(34,52,58,.09);
+    border-radius:14px;padding:.85rem 1.05rem;
+    cursor:pointer;transition:.25s;user-select:none;
+  }
+  .check-item:hover{border-color:var(--coral)}
+  .check-item input{display:none}
+  .check-item .box{
+    flex:0 0 22px;height:22px;margin-top:2px;
+    border:2px solid var(--lagoon);border-radius:7px;
+    display:grid;place-items:center;transition:.2s;
+    font-size:.8rem;color:#fff;
+  }
+  .check-item input:checked + .box{background:var(--coral);border-color:var(--coral)}
+  .check-item input:checked + .box::after{content:"✓";font-weight:800}
+  .check-item input:checked ~ .txt{opacity:.45;text-decoration:line-through}
+  .check-item .txt{font-size:.93rem;transition:.2s}
+  .progress-wrap{margin:0 0 1.6rem;display:flex;align-items:center;gap:1rem}
+  .progress{flex:1;height:10px;background:var(--sand-deep);border-radius:99px;overflow:hidden}
+  .progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--lagoon),var(--coral));border-radius:99px;transition:width .4s ease}
+  #progressLabel{font-weight:800;font-size:.85rem;color:var(--lagoon);min-width:64px;text-align:right}
+
+  /* ---------- EATS ---------- */
+  .eats{display:grid;gap:1.2rem;grid-template-columns:repeat(auto-fit,minmax(290px,1fr))}
+  .eat-group{background:#fff;border-radius:20px;border:1px solid rgba(34,52,58,.08);padding:1.7rem 1.6rem;box-shadow:0 10px 30px -18px rgba(34,52,58,.25)}
+  .eat-group h3{font-family:var(--serif);font-size:1.3rem;font-weight:600;color:var(--lagoon);margin-bottom:.9rem;display:flex;gap:.5rem;align-items:center}
+  .eat{padding:.5rem 0;border-bottom:1px dashed rgba(34,52,58,.12)}
+  .eat:last-child{border-bottom:none}
+  .eat b{font-size:.97rem;color:var(--ink)}
+  .eat span{display:block;font-size:.84rem;color:var(--driftwood)}
+
+  /* ---------- SAFETY ---------- */
+  .safety{
+    background:linear-gradient(135deg,#FFF8F0,#FCEFE3);
+    border:1px solid rgba(217,164,65,.35);
+    border-radius:24px;padding:2.2rem 2rem;
+  }
+  .safety .grid{margin-top:1.2rem}
+  .safety .card{box-shadow:none}
+  .emergency{
+    font-family:var(--serif);font-size:1.5rem;color:#A8401F;
+    text-align:center;margin-bottom:.4rem;
+  }
+
+  /* ---------- HOST / FOOTER ---------- */
+  .host-banner{
+    margin:5rem 0 0;
+    background:var(--lagoon-deep);
+    border-radius:28px;
+    padding:3.2rem 2.4rem;
+    text-align:center;color:var(--foam);
+    position:relative;overflow:hidden;
+  }
+  .host-banner::before{
+    content:"🐚";position:absolute;font-size:11rem;opacity:.07;
+    right:-1.5rem;bottom:-3rem;transform:rotate(-15deg);
+  }
+  .host-banner h2{color:#fff;margin:0 auto .6rem}
+  .host-banner p{max-width:52ch;margin:0 auto;color:rgba(205,231,225,.85)}
+  .host-banner .phone{
+    display:inline-block;margin-top:1.6rem;
+    background:var(--coral);color:#FFF3EC;text-decoration:none;
+    font-weight:800;letter-spacing:.05em;font-size:1.05rem;
+    padding:.9rem 2.2rem;border-radius:999px;
+    box-shadow:0 14px 30px -10px rgba(226,109,79,.6);
+    transition:.3s;
+  }
+  .host-banner .phone:hover{transform:translateY(-3px) scale(1.02)}
+  footer{
+    text-align:center;padding:3.5rem 1.5rem 2.5rem;
+    color:var(--driftwood);font-size:.85rem;
+  }
+  footer .shell{font-size:1.6rem;display:block;margin-bottom:.6rem}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="brand" href="#top">🐚 811 Beach Haven West</a>
+  <div class="links">
+    <a href="#wifi">Wi-Fi</a>
+    <a href="#essentials">Essentials</a>
+    <a href="#fun">Fun</a>
+    <a href="#beaches">Beaches</a>
+    <a href="#rules">Rules</a>
+    <a href="#eats">Local Eats</a>
+    <a href="#checkout">Checkout</a>
+  </div>
+</nav>
+
+<header id="top">
+  <div class="sun"></div>
+  <p class="eyebrow">Welcome to the lagoon</p>
+  <h1>Your summer getaway <em>starts here</em></h1>
+  <p class="hero-sub">The complete guest guide to 811 Beach Haven West Boulevard — a waterfront home just 5 minutes from the beaches of Long Beach Island.</p>
+  <div class="hero-badges">
+    <span class="pill">4 Bedrooms</span>
+    <span class="pill">2 Baths</span>
+    <span class="pill">Lagoon-front Dock</span>
+    <span class="pill">Pet Friendly</span>
+    <span class="pill">Beach Badges Included</span>
+  </div>
+  <div class="hero-cards">
+    <div class="time-card">
+      <div class="label">Check-in</div>
+      <div class="time">4:00 PM</div>
+    </div>
+    <div class="time-card">
+      <div class="label">Check-out</div>
+      <div class="time">10:00 AM</div>
+    </div>
+  </div>
+  <div class="waves">
+    <svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path fill="#FBF6EC" d="M0,64 C240,110 480,20 720,50 C960,80 1200,110 1440,60 L1440,120 L0,120 Z"/></svg>
+  </div>
+</header>
+
+<main>
+
+  <!-- WELCOME / WIFI -->
+  <section id="wifi" class="reveal">
+    <p class="kicker">First things first</p>
+    <h2>A warm welcome <em>&amp; getting connected</em></h2>
+    <p class="lede">We're so excited to have you! Make yourself at home, relax, and enjoy everything Beach Haven West has to offer.</p>
+    <div class="grid cols-3">
+      <div class="card wifi-card">
+        <span class="icon">📶</span>
+        <h3>Wi-Fi</h3>
+        <div class="cred">Network: <b>NETGEAR46</b></div>
+        <div class="cred">Password: <b>jollycartoon042</b></div>
+        <p style="margin-top:.8rem">Smart TVs are ready for your Netflix, Prime, Peacock, HBO &amp; Hulu logins — just remember to log out before you leave!</p>
+      </div>
+      <div class="card">
+        <span class="icon">🔑</span>
+        <h3>Self Check-In</h3>
+        <ul>
+          <li>Keyless entry — your door code arrives on check-in day</li>
+          <li>Parking for up to 4 cars out front; extra parking on the street</li>
+          <li>Need anything? Call or text Yadira anytime</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="icon">🚪</span>
+        <h3>Full Access, Two Exceptions</h3>
+        <ul>
+          <li>One locked storage closet (bedroom next to the hallway bathroom) stays closed</li>
+          <li>The boat on the lagoon isn't included — contact your host about availability &amp; rental details if interested</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ESSENTIALS -->
+  <section id="essentials" class="reveal">
+    <p class="kicker">Around the house</p>
+    <h2>House <em>essentials</em></h2>
+    <p class="lede">Everything has a home here — remotes, pots, games, and the slightly quirky back door. Here's the map.</p>
+    <div class="grid cols-2">
+      <div class="card">
+        <span class="icon">🚪</span>
+        <h3>The Back Doors</h3>
+        <p class="sub">To open</p>
+        <p>Pull the handle up, twist the knob <b>left</b> several times until you feel the bolt release, then lower the handle and push open the right-side door.</p>
+        <p class="sub">To lock</p>
+        <p>Pull the handle up, twist the knob <b>right</b> several times — that should do it!</p>
+      </div>
+      <div class="card">
+        <span class="icon">❄️</span>
+        <h3>A/C &amp; Remotes</h3>
+        <ul>
+          <li>A/C remotes live near the light switches in each room</li>
+          <li>Dining/fireplace area remote is near the fire extinguisher</li>
+          <li><b>Important:</b> the primary bedroom and living room A/C units work as a pair — run both together, never one without the other</li>
+          <li>TV remotes: TV stand (living room), shelf top (coffee bar), dressers (bedrooms)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="icon">🍳</span>
+        <h3>Kitchen Quick Guide</h3>
+        <ul>
+          <li><b>Microwave drawer:</b> center of the peninsula — pull the top panel down gently, press "Open," load, press "Close." Don't yank, please!</li>
+          <li><b>Dishes &amp; cups:</b> upper cabinet above the sink</li>
+          <li><b>Pots &amp; pans:</b> below the microwave drawer &amp; near the sink's left corner</li>
+          <li><b>Stock pot:</b> closet in the bedroom near the kitchen — great for a seafood boil!</li>
+          <li><b>Boards &amp; trays:</b> bottom right cabinet near the stove; charcuterie boards above the fridge</li>
+          <li><b>Silverware:</b> top right drawer of the island · <b>Tupperware:</b> bottom drawer</li>
+          <li><b>Spices &amp; cooking utensils:</b> on the counter</li>
+          <li><b>Coffee station:</b> coffee machine, Nespresso &amp; kettle at the coffee bar; blender in its bottom right drawer</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="icon">🧺</span>
+        <h3>Cleaning, Laundry &amp; Trash</h3>
+        <ul>
+          <li><b>Vacuum, broom, dustpan:</b> next to the coat cabinet; mop in the primary closet; products under the kitchen sink</li>
+          <li><b>Washer/dryer:</b> hallway bathroom — please clean the lint trap after each use</li>
+          <li><b>Iron &amp; board:</b> primary bedroom closet</li>
+          <li><b>Trash pickup Monday · recycling Tuesday</b> — place bins at the curb</li>
+          <li>Trash bin: bottom left island cabinet · Recycling: bottom right peninsula cabinet</li>
+          <li><b>Shower doors:</b> a quick squeegee after each use keeps the glass sparkling 🙏</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FUN -->
+  <section id="fun" class="reveal">
+    <p class="kicker">Make some memories</p>
+    <h2>Entertainment &amp; <em>outdoor fun</em></h2>
+    <div class="grid cols-3">
+      <div class="card">
+        <span class="icon">🍹</span>
+        <h3>The Outdoor Bar</h3>
+        <p>Overlooking the lagoon with a mini fridge, swivel bar chairs, and plenty of counter space. Bring your own beverages, ice &amp; supplies — and please leave it clean and tidy after use.</p>
+      </div>
+      <div class="card">
+        <span class="icon">🛶</span>
+        <h3>On the Water</h3>
+        <ul>
+          <li>Kayaks &amp; paddleboards are yours to enjoy — at your own risk</li>
+          <li>Life vests are in the gray deck box near the right-side dock</li>
+          <li>Please return everything to its storage spot after use</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="icon">🎲</span>
+        <h3>Games &amp; Extras</h3>
+        <ul>
+          <li>Board games under the dining table</li>
+          <li>Outdoor games &amp; beach chairs in the gray deck box</li>
+          <li>Rock speakers on the stools behind the couch — chargers in the top right kitchen corner cabinet</li>
+          <li>Column lights switch is behind the center front planter — please turn off when not in use</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- BEACHES -->
+  <section id="beaches" class="reveal">
+    <p class="kicker">Five minutes away</p>
+    <h2>Beaches in <em>Ship Bottom</em></h2>
+    <p class="lede">Your stay includes beach badges and chairs — grab them and go. Badges live in the kitchen counter holder.</p>
+    <div class="grid cols-2">
+      <div class="card">
+        <span class="icon">🌊</span>
+        <h3>Ocean Beaches</h3>
+        <ul>
+          <li>Run from 3rd to 31st Street</li>
+          <li>Ramp access at 4th, 7th–9th, 13th–15th, 19th–23rd, 25th &amp; 30th Streets</li>
+          <li>ADA-compliant ramps at 15th &amp; 20th Streets</li>
+          <li>Vehicle access at 3rd, 5th, 11th, 17th &amp; 31st Streets</li>
+        </ul>
+      </div>
+      <div class="card">
+        <span class="icon">🏖️</span>
+        <h3>Bay Beaches</h3>
+        <ul>
+          <li>13th–16th Streets, west of Barnegat Ave</li>
+          <li>Shallow, calm water — perfect for little ones</li>
+          <li>Lifeguards on duty</li>
+          <li>Playground &amp; pavilion on site</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- RULES -->
+  <section id="rules" class="reveal">
+    <p class="kicker">The important part</p>
+    <h2>House <em>rules</em></h2>
+    <p class="lede">Treat our home with the same care and respect you would your own — that's really the whole list. The details:</p>
+    <div class="rules-wrap">
+      <div class="rule-col do">
+        <h3>🌿 Please do</h3>
+        <ul>
+          <li>Keep to registered guests only on the property</li>
+          <li>Keep doors &amp; windows closed while the A/C is running</li>
+          <li>Supervise children at all times — especially near the lagoon, dock &amp; waterfront</li>
+          <li>Use kayaks &amp; paddleboards at your own risk, and return them to their storage areas</li>
+          <li>Rinse off sand before coming inside</li>
+          <li>Place all trash in the designated containers</li>
+          <li>Report damage or maintenance issues right away</li>
+          <li>Lock all doors &amp; windows when leaving</li>
+        </ul>
+      </div>
+      <div class="rule-col dont">
+        <h3>🚫 Please don't</h3>
+        <ul>
+          <li>Smoke indoors — this is a non-smoking property</li>
+          <li>Host parties, events, or large gatherings without prior approval</li>
+          <li>Move indoor furniture outdoors</li>
+          <li>Dive from the dock</li>
+          <li>Use the boat docked at the property — it's privately owned and not part of the rental unless arranged with the host</li>
+        </ul>
+      </div>
+    </div>
+    <div class="quiet">🌙 Quiet hours are <b>10:00 PM – 8:00 AM</b> — our neighborhood is home to full-time residents and children.</div>
+  </section>
+
+  <!-- SAFETY -->
+  <section id="safety" class="reveal">
+    <p class="kicker">Just in case</p>
+    <h2>Safety &amp; <em>medical info</em></h2>
+    <div class="safety">
+      <p class="emergency">🚨 In an emergency, dial 911</p>
+      <div class="grid cols-3">
+        <div class="card">
+          <span class="icon">🩹</span>
+          <h3>Urgent Care</h3>
+          <p>853 Mill Creek Rd, Stafford Township<br><b>(609) 756-4667</b></p>
+        </div>
+        <div class="card">
+          <span class="icon">🏥</span>
+          <h3>Hospital</h3>
+          <p>Southern Ocean Medical Center<br>1140 Route 72 W, Manahawkin<br><b>(609) 597-6011</b></p>
+        </div>
+        <div class="card">
+          <span class="icon">🧯</span>
+          <h3>In the House</h3>
+          <ul>
+            <li>Fire extinguisher: right corner by upper kitchen cabinets</li>
+            <li>Smoke &amp; CO detectors throughout</li>
+            <li>First aid kit: main bathroom medicine cabinet</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EATS -->
+  <section id="eats" class="reveal">
+    <p class="kicker">Eat well, shop easy</p>
+    <h2>Local <em>favorites</em></h2>
+    <p class="lede">Our tried-and-true picks, from cash-only clam shacks to rooftop sunsets.</p>
+    <div class="eats">
+      <div class="eat-group">
+        <h3>🦀 Manahawkin Must-Trys</h3>
+        <div class="eat"><b>Blacky's Clams</b><span>Best fresh clams around — cash only</span></div>
+        <div class="eat"><b>39° NORTH</b><span>Breakfast through dinner, BYOB</span></div>
+        <div class="eat"><b>Boatyard</b><span>Outdoor bar, food trucks, family-friendly</span></div>
+        <div class="eat"><b>Mud City Crab House</b><span>Amazing seafood + market</span></div>
+        <div class="eat"><b>Old Causeway</b><span>Great food &amp; bar, with a shuttle</span></div>
+        <div class="eat"><b>Brazzi</b><span>Authentic Italian — call ahead</span></div>
+        <div class="eat"><b>Element</b><span>Casual with generous portions</span></div>
+        <div class="eat"><b>The Mainland</b><span>Arcade, go-karts &amp; zipline</span></div>
+      </div>
+      <div class="eat-group">
+        <h3>🌅 Long Beach Island Gems</h3>
+        <div class="eat"><b>Parker's Garage</b><span>BYOB + sunsets — reserve ahead</span></div>
+        <div class="eat"><b>Bird and Betty's</b><span>Chill beach vibes, great top deck</span></div>
+        <div class="eat"><b>Triton</b><span>Oyster bar, Frosé, casino clam pizza</span></div>
+        <div class="eat"><b>Daddy O's</b><span>Sushi &amp; rooftop dining</span></div>
+        <div class="eat"><b>The Gables</b><span>Romantic &amp; upscale</span></div>
+        <div class="eat"><b>Tucker's Rooftop</b><span>Food, views, relaxing vibe</span></div>
+        <div class="eat"><b>Chicken and the Egg</b><span>Local breakfast favorite</span></div>
+        <div class="eat"><b>Wally's</b><span>Great any time</span></div>
+      </div>
+      <div class="eat-group">
+        <h3>🛒 Groceries &amp; Sweets</h3>
+        <div class="eat"><b>Huck's Market</b><span>Right across the street — perfect for quick stops</span></div>
+        <div class="eat"><b>ShopRite</b><span>Full grocery selection</span></div>
+        <div class="eat"><b>Acme</b><span>East Bay Ave</span></div>
+        <div class="eat"><b>Walmart · Costco · Target · PetSmart</b><span>Stafford Park Blvd</span></div>
+        <div class="eat"><b>Bagels and Beyond</b><span>NY-style bagels · 857 Mill Creek Rd</span></div>
+        <div class="eat"><b>Mister Softee of Manahawkin</b><span>🍦 587 Mill Creek Rd</span></div>
+        <div class="eat"><b>Ice Cream Shop of Manahawkin</b><span>🍦 59 N Main St</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHECKOUT -->
+  <section id="checkout" class="reveal">
+    <p class="kicker">Before you head out</p>
+    <h2>Checkout <em>checklist</em></h2>
+    <p class="lede">Tap items as you go — twenty quick things and you're on your way. Safe travels! 🐚</p>
+    <div class="progress-wrap">
+      <div class="progress"><span id="progressBar"></span></div>
+      <div id="progressLabel">0 / 20</div>
+    </div>
+    <div class="checklist" id="checklist">
+      <label class="check-item"><input type="checkbox"><span class="box"></span><span class="txt">Return all 4 beach badges to the kitchen counter holder</span></label>
+      <label class="check-item"><input type="checkbox"><span class="box"></span><span class="txt">Return all 4 beach chairs</span></label>
+      <label class="check-item"><input type="checkbox"><span class="box"></span><span class="txt">Return all kayaks to the bottom deck</span></label>
+      <label class="check-item"><input type="checkbox"><span class="box"></span><span class="txt">Return all paddleboards to the area near the top dock</span></label>
+      <label class="check-item"><input type="checkbox"><span class="box"></span><span class="txt">Clean and put away dishes, utensils &amp; cookware</span></label>
+      <label class="check-item"><input type="checkbox"><span class="box"></span><span class="txt">Remove all food from the fridge &amp; kitchen cabinets</span></label>
+      <label class="check-item"><input type="checkbox"><span class="box"></span><span class="txt">Start the dishwasher, empty the sink, wipe counters &amp; tables</span></label>
+      <label class="check-item"><input type="checkbox"><span class="box"></span><span class="txt">Take out all trash &amp; recycling (including bathrooms)</span></label>
+      <label class="check-item"><input type="checkbox"><span class="box"></span><span class="txt">Remove bed sheets &amp; pillowcases (leave mattress covers, pillow covers &amp; blankets)</span></label>
+      <label class="check-item"><input type="checkbox"><span class="box"></span><span class="txt">Return all TV remotes to their TV areas</span></label>
+      <label class="check-item"><input type="checkbox"><span class="box"></span><span class="txt">Close all windows; blinds down</span></label>
+      <label class="check-item"><input type="checkbox"><span class="box"></span><span class="txt">Turn off grill gas, clean the grill &amp; cover it</span></label>
+      <label class="check-item"><input type="checkbox"><span class="box"></span><span class="txt">Return A/C remotes to their holders</span></label>
+      <label class="check-item"><input type="checkbox"><span class="box"></span><span class="txt">Check the washer &amp; dryer for forgotten laundry</span></label>
+      <label class="check-item"><input type="checkbox"><span class="box"></span><span class="txt">Turn off all lights &amp; appliances</span></label>
+      <label class="check-item"><input type="checkbox"><span class="box"></span><span class="txt">Pet owners: clean up after pets — black bin &amp; scooper are outside</span></label>
+      <label class="check-item"><input type="checkbox"><span class="box"></span><span class="txt">Report any damages via text</span></label>
+      <label class="check-item"><input type="checkbox"><span class="box"></span><span class="txt">Double-check for belongings — unclaimed items are discarded after 5 days</span></label>
+      <label class="check-item"><input type="checkbox"><span class="box"></span><span class="txt">Log out of all streaming services</span></label>
+      <label class="check-item"><input type="checkbox"><span class="box"></span><span class="txt">Lock all doors before leaving</span></label>
+    </div>
+  </section>
+
+  <!-- HOST -->
+  <div class="host-banner reveal">
+    <h2>Thank you for staying! 🎉</h2>
+    <p>We hope your stay is filled with sunshine, laughter, and unforgettable memories. If you have a great time, we'd love a quick review — it means the world to us. Questions anytime? Your Superhost Yadira is a call or text away.</p>
+    <a class="phone" href="tel:+12015222834">📞 Yadira · (201) 522-2834</a>
+  </div>
+
+</main>
+
+<footer>
+  <span class="shell">🐚</span>
+  811 Beach Haven West Boulevard · Beach Haven West, NJ<br>
+  Check-in 4:00 PM · Check-out 10:00 AM · See you on the lagoon!
+</footer>
+
+<script>
+  // Scroll reveals
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Checkout checklist with progress + persistence
+  const boxes = [...document.querySelectorAll('#checklist input')];
+  const bar = document.getElementById('progressBar');
+  const label = document.getElementById('progressLabel');
+  const saved = JSON.parse(localStorage.getItem('checkout') || '[]');
+  boxes.forEach((b, i) => { b.checked = !!saved[i]; });
+  function update() {
+    const done = boxes.filter(b => b.checked).length;
+    bar.style.width = (done / boxes.length * 100) + '%';
+    label.textContent = done + ' / ' + boxes.length;
+    localStorage.setItem('checkout', JSON.stringify(boxes.map(b => b.checked)));
+    if (done === boxes.length) label.textContent = '✓ Done!';
+  }
+  boxes.forEach(b => b.addEventListener('change', update));
+  update();
+</script>
+
+</body>
+</html>
