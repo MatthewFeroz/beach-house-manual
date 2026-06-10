@@ -244,6 +244,13 @@
   .eat{padding:.5rem 0;border-bottom:1px dashed rgba(34,52,58,.12)}
   .eat:last-child{border-bottom:none}
   .eat b{font-size:.97rem;color:var(--ink)}
+  .eat b a{
+    color:inherit;text-decoration:none;
+    border-bottom:1.5px solid var(--coral-soft);
+    transition:.2s;
+  }
+  .eat b a:hover{color:var(--coral);border-bottom-color:var(--coral)}
+  .eat b a::after{content:" ↗";font-size:.75em;color:var(--coral);font-weight:800}
   .eat span{display:block;font-size:.84rem;color:var(--driftwood)}
 
   /* ---------- SAFETY ---------- */
@@ -288,9 +295,98 @@
     color:var(--driftwood);font-size:.85rem;
   }
   footer .shell{font-size:1.6rem;display:block;margin-bottom:.6rem}
+
+  /* ---------- SCROLL PROGRESS ---------- */
+  #scrollProgress{
+    position:fixed;top:0;left:0;height:3px;width:0;z-index:200;
+    background:linear-gradient(90deg,var(--lagoon),var(--coral),var(--gold));
+    transition:width .15s ease-out;
+  }
+
+  /* ---------- MOBILE DOCK ---------- */
+  .dock{display:none}
+  @media(max-width:840px){
+    nav{justify-content:center}
+    .dock{
+      display:flex;position:fixed;left:50%;transform:translateX(-50%);
+      bottom:max(.9rem, env(safe-area-inset-bottom));
+      z-index:120;gap:.2rem;
+      background:rgba(9,56,67,.93);backdrop-filter:blur(14px);
+      border-radius:999px;padding:.42rem .55rem;
+      box-shadow:0 16px 38px -12px rgba(9,56,67,.55);
+    }
+    .dock a{
+      display:flex;flex-direction:column;align-items:center;gap:.12rem;
+      min-width:58px;padding:.42rem .45rem;border-radius:999px;
+      color:rgba(205,231,225,.78);text-decoration:none;
+      font-size:.58rem;font-weight:800;text-transform:uppercase;letter-spacing:.07em;
+      transition:background .25s,color .25s;
+    }
+    .dock a span{font-size:1.15rem;line-height:1}
+    .dock a.active{background:var(--coral);color:#FFF3EC}
+    body{padding-bottom:6.2rem}
+  }
+
+  /* ---------- MOBILE LAYOUT ---------- */
+  @media(max-width:720px){
+    nav{padding:.7rem 1.1rem}
+    header{padding:6.5rem 1.25rem 8.5rem;min-height:94svh}
+    .sun{width:88px;height:88px;top:11%;right:8%;box-shadow:0 0 60px 22px rgba(217,164,65,.32)}
+    .eyebrow{font-size:.7rem;letter-spacing:.28em}
+    .hero-sub{font-size:.98rem;max-width:38ch}
+    .hero-badges{gap:.45rem;margin-top:1.8rem;max-width:24rem;margin-left:auto;margin-right:auto}
+    .pill{font-size:.66rem;padding:.4rem .85rem}
+    .hero-cards{gap:.8rem;margin-top:2.3rem}
+    .time-card{padding:.85rem 1.4rem;border-radius:16px}
+    .time-card .time{font-size:1.55rem}
+    .waves svg{height:70px}
+
+    section{padding:3.7rem 0 1.2rem}
+    .kicker{justify-content:center}
+    .kicker::before{content:"";height:1px;width:32px;background:var(--coral);opacity:.5}
+    .kicker::after{width:32px}
+    h2{text-align:center;margin-left:auto;margin-right:auto}
+    .lede{text-align:center;margin-left:auto;margin-right:auto;font-size:1rem;margin-bottom:1.9rem}
+
+    .grid{gap:1rem}
+    .card{text-align:center;padding:1.6rem 1.25rem;border-radius:18px}
+    .card .icon{font-size:2.1rem;margin-bottom:.65rem}
+    .card h3{font-size:1.3rem}
+    .card p{max-width:36ch;margin-left:auto;margin-right:auto}
+    .card ul{display:inline-block;text-align:left;max-width:100%}
+    .card .sub{margin-top:1.15rem}
+    .wifi-card .cred{max-width:21rem;margin-left:auto;margin-right:auto;margin-top:.6rem}
+
+    .rules-wrap{gap:1rem}
+    .rule-col{text-align:center;padding:1.7rem 1.25rem}
+    .rule-col h3{justify-content:center}
+    .rule-col ul{display:inline-block;text-align:left}
+    .quiet{font-size:1.08rem;padding:1.3rem 1.3rem;border-radius:18px}
+
+    .eat-group{text-align:center;padding:1.6rem 1.25rem}
+    .eat-group h3{justify-content:center}
+
+    .safety{padding:1.9rem 1.1rem;border-radius:20px}
+    .emergency{font-size:1.28rem}
+
+    .progress-wrap{
+      position:sticky;top:60px;z-index:50;
+      background:rgba(251,246,236,.92);backdrop-filter:blur(10px);
+      padding:.75rem .9rem;border-radius:14px;
+      border:1px solid rgba(34,52,58,.08);
+      margin-bottom:1.1rem;
+    }
+    .check-item{padding:.8rem .95rem}
+
+    .host-banner{padding:2.7rem 1.4rem;border-radius:22px;margin-top:3.5rem}
+    .host-banner .phone{font-size:.95rem;padding:.85rem 1.8rem}
+    footer{padding:2.6rem 1.25rem 1.2rem}
+  }
 </style>
 </head>
 <body>
+
+<div id="scrollProgress"></div>
 
 <nav>
   <a class="brand" href="#top">🐚 811 Beach Haven West</a>
@@ -686,6 +782,14 @@
 
 </main>
 
+<nav class="dock" aria-label="Quick sections">
+  <a href="#wifi"><span>📶</span>Wi-Fi</a>
+  <a href="#home"><span>🛏️</span>Home</a>
+  <a href="#rules"><span>🌿</span>Rules</a>
+  <a href="#eats"><span>🦀</span>Eats</a>
+  <a href="#checkout"><span>✅</span>Checkout</a>
+</nav>
+
 <footer>
   <span class="shell">🐚</span>
   811 Beach Haven West Boulevard · Beach Haven West, NJ<br>
@@ -714,6 +818,27 @@
   }
   boxes.forEach(b => b.addEventListener('change', update));
   update();
+
+  // Scroll progress bar
+  const sp = document.getElementById('scrollProgress');
+  addEventListener('scroll', () => {
+    const h = document.documentElement;
+    sp.style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight) * 100) + '%';
+  }, { passive: true });
+
+  // Mobile dock — highlight the section in view
+  const dockLinks = [...document.querySelectorAll('.dock a')];
+  const dockIO = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        dockLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
+      }
+    });
+  }, { rootMargin: '-35% 0px -55% 0px' });
+  dockLinks.forEach(a => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) dockIO.observe(t);
+  });
 </script>
 
 </body>
