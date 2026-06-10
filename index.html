@@ -253,6 +253,48 @@
   .eat b a::after{content:" ↗";font-size:.75em;color:var(--coral);font-weight:800}
   .eat span{display:block;font-size:.84rem;color:var(--driftwood)}
 
+  /* ---------- REVIEWS ---------- */
+  .review-stats{
+    display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap;
+    margin-bottom:2.2rem;
+  }
+  .review-stats .big-stars{font-size:1.5rem;color:var(--gold);letter-spacing:.12em;text-shadow:0 2px 12px rgba(217,164,65,.45)}
+  .review-stats .stat-txt{font-family:var(--serif);font-size:1.15rem;color:var(--lagoon-deep)}
+  .review-stats .stat-txt b{color:var(--coral)}
+  .reviews-grid{columns:3 300px;column-gap:1.2rem}
+  .review-card{
+    break-inside:avoid;margin-bottom:1.2rem;
+    background:#fff;border:1px solid rgba(34,52,58,.08);
+    border-radius:20px;padding:1.6rem 1.5rem;
+    box-shadow:0 10px 30px -18px rgba(34,52,58,.25);
+    position:relative;
+  }
+  .review-card::before{
+    content:"“";position:absolute;top:.4rem;left:1.1rem;
+    font-family:var(--serif);font-size:3.4rem;color:var(--coral-soft);line-height:1;
+  }
+  .review-card .stars{color:var(--gold);font-size:.85rem;letter-spacing:.18em;margin:.8rem 0 .55rem}
+  .review-card .quote{
+    font-family:var(--serif);font-style:italic;font-size:1.02rem;line-height:1.55;
+    color:var(--ink);
+  }
+  .review-card .who{margin-top:.9rem;font-size:.8rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--lagoon)}
+  .review-card .who span{display:block;font-weight:600;text-transform:none;letter-spacing:.02em;color:var(--driftwood);font-size:.78rem;margin-top:.15rem}
+  .review-cta{
+    margin-top:2.2rem;text-align:center;
+    background:linear-gradient(135deg,var(--foam),#E9F5F0);
+    border:1px solid rgba(14,82,96,.15);
+    border-radius:24px;padding:2.4rem 1.8rem;
+  }
+  .review-cta h3{font-family:var(--serif);font-weight:500;font-size:1.7rem;color:var(--lagoon-deep);margin-bottom:.5rem}
+  .review-cta p{color:var(--driftwood);max-width:46ch;margin:0 auto 1.4rem}
+  .review-cta a{
+    display:inline-block;background:var(--coral);color:#FFF3EC;text-decoration:none;
+    font-weight:800;letter-spacing:.05em;padding:.9rem 2.1rem;border-radius:999px;
+    box-shadow:0 14px 30px -10px rgba(226,109,79,.6);transition:.3s;
+  }
+  .review-cta a:hover{transform:translateY(-3px) scale(1.02)}
+
   /* ---------- SAFETY ---------- */
   .safety{
     background:linear-gradient(135deg,#FFF8F0,#FCEFE3);
@@ -378,6 +420,17 @@
     }
     .check-item{padding:.8rem .95rem}
 
+    .reviews-grid{
+      display:flex;columns:auto;overflow-x:auto;gap:.9rem;
+      scroll-snap-type:x mandatory;padding:.2rem .2rem 1rem;
+      -webkit-overflow-scrolling:touch;scrollbar-width:none;
+    }
+    .reviews-grid::-webkit-scrollbar{display:none}
+    .review-card{flex:0 0 82%;scroll-snap-align:center;margin-bottom:0}
+    .review-card .quote{font-size:.97rem}
+    .review-cta{padding:2rem 1.3rem;border-radius:20px}
+    .review-cta h3{font-size:1.45rem}
+
     .host-banner{padding:2.7rem 1.4rem;border-radius:22px;margin-top:3.5rem}
     .host-banner .phone{font-size:.95rem;padding:.85rem 1.8rem}
     footer{padding:2.6rem 1.25rem 1.2rem}
@@ -398,6 +451,7 @@
     <a href="#beaches">Beaches</a>
     <a href="#rules">Rules</a>
     <a href="#eats">Local Eats</a>
+    <a href="#reviews">Reviews</a>
     <a href="#checkout">Checkout</a>
   </div>
 </nav>
@@ -738,6 +792,83 @@
         <div class="eat"><b><a href="https://www.visitatlanticcity.com/" target="_blank" rel="noopener">Atlantic City</a></b><span>Casinos, concerts &amp; nightlife — 35 minutes</span></div>
         <div class="eat"><b>Bike rides</b><span>Pedal to the bay beach or nearby parks</span></div>
       </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section id="reviews" class="reveal">
+    <p class="kicker">Guest love</p>
+    <h2>What our <em>guests say</em></h2>
+    <div class="review-stats">
+      <span class="big-stars">★★★★★</span>
+      <span class="stat-txt"><b>5.0</b> · every single review, five stars</span>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">The property is stunning from the moment you pull into the driveway… the home exceeded our expectations in every way. We will do it again in a heartbeat.</p>
+        <p class="who">Michelle K.<span>Bethlehem · February 2026</span></p>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">I've been renting on LBI and Manahawkin for over 25 years. This is one of the nicest homes I have ever stayed in!</p>
+        <p class="who">William R.<span>Airmont · August 2025</span></p>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">A true retreat — from the luxurious rain shower and heated towel rack to the Nespresso machine. The backyard was an absolute oasis.</p>
+        <p class="who">Jena H.<span>Montville · October 2025</span></p>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">Yadira's home is perfect for a family with dogs! The fenced yard was a bonus. Gorgeous, freshly remodeled, and perfect for a family gathering.</p>
+        <p class="who">Regina L.<span>Beach Haven · December 2025</span></p>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">It had it all — the back patio, the gorgeous view of the lagoon, the rock speakers, and evenings by the fire pit. It was perfect!</p>
+        <p class="who">Kerry L.<span>Freehold · September 2025</span></p>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">We have rented many homes through various sites and this was one of our best overall experiences. We have never felt so valued as guests.</p>
+        <p class="who">Chris D.<span>Lancaster, PA · June 2025</span></p>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">Fully fenced in, which took away a lot of stress watching over our dog and young kids. Everything was clean, new &amp; modern. Easy 5/5 stars.</p>
+        <p class="who">Michael C.<span>Franklin Lakes · August 2025</span></p>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">I realized we needed more towels and Yadira sent someone to drop them off within an hour. We will definitely be rebooking.</p>
+        <p class="who">Susan R.<span>Morristown · August 2025</span></p>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">Impeccably decorated and equipped with all the amenities for a great family vacation at LBI. The grandkids loved it!</p>
+        <p class="who">Joseph &amp; Tisha L.<span>Staten Island · August 2025</span></p>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">It was such a great experience with Beach Haven West that now we are looking to buy down here!</p>
+        <p class="who">Victoria C.<span>Yardley, PA · July 2025</span></p>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">Quiet, safe, and with very friendly neighbors. Zero complaints — 100% recommend for a relaxing, family-friendly getaway.</p>
+        <p class="who">Donna M.<span>Paramus · July 2025</span></p>
+      </div>
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p class="quote">Everything you needed for a relaxing beach vacation — chairs, umbrellas, games, kayaks and paddleboard. We already can't wait to return next year!</p>
+        <p class="who">Tyler M.<span>New York · August 2025</span></p>
+      </div>
+    </div>
+    <div class="review-cta">
+      <h3>Loved your stay? 🌟</h3>
+      <p>A quick review means the world to us — it helps other families find their summer getaway, and it truly makes our day.</p>
+      <a href="https://www.vacationrentalslbi.com/listing.3560" target="_blank" rel="noopener">Leave us a review on VRLBI</a>
     </div>
   </section>
 
